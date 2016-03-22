@@ -1,0 +1,46 @@
+package forall.utils;
+
+import org.apache.commons.configuration.CompositeConfiguration;
+import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.commons.configuration.SystemConfiguration;
+
+import java.util.Arrays;
+
+/**
+ * Created by oljashabanova on 21/03/16.
+ */
+public class PropertiesUtils {
+
+    private static final CompositeConfiguration MIXED_CONFIG;
+
+    public static final class Constants{
+        public static final String PROD_URL = "prod.url.arg";
+        public static final String CHROME_BROWSER = "webdriver.chrome.driver";
+
+
+        private Constants(){
+
+        }
+    }
+
+
+
+    static {
+        try{
+            MIXED_CONFIG = new CompositeConfiguration(Arrays.asList(new SystemConfiguration(),
+                    new PropertiesConfiguration("properties/config.properties")));
+        }
+        catch (Exception ex){
+            throw new IllegalArgumentException("Can not load properties");
+        }
+    }
+
+    public static String getStringValue(final String key){
+        return MIXED_CONFIG.getString(key);
+    }
+
+    private PropertiesUtils(){
+
+    }
+
+}
