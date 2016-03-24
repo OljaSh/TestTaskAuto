@@ -3,6 +3,8 @@ package eu.ipscstore.pageobject;
 import org.openqa.selenium.By;
 import forall.core.BasePage;
 
+import static eu.ipscstore.preset.PageObjectSupplier.$;
+
 
 public class LoginPage extends BasePage {
 
@@ -11,7 +13,7 @@ public class LoginPage extends BasePage {
 
     public CreateAccountPage clickButtonCreateAnAccount(){
         click(buttonCreateAnAccount);
-        return new CreateAccountPage();
+        return $(CreateAccountPage.class);
     }
 
     public LoginPage setEmailAddress(String emailAddress){

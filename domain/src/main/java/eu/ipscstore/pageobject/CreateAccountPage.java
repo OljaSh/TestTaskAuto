@@ -3,6 +3,8 @@ package eu.ipscstore.pageobject;
 import forall.core.BasePage;
 import org.openqa.selenium.By;
 
+import java.time.LocalDate;
+
 
 public class CreateAccountPage extends BasePage {
 
@@ -25,45 +27,51 @@ public class CreateAccountPage extends BasePage {
 
     //сейчас выбирается только одно згначение
     //По хорошему надо  передрать все и на регренене рандомная быборка
-    public  CreateAccountPage setRadioButton() {
+    public  CreateAccountPage setTitle() {
         click(radioButtonUnknown);
         return this;
     }
 
-    public CreateAccountPage setFirstName(String FirstName){
-        setText(inputFirstName, FirstName);
+    public CreateAccountPage setFirstName(final String firstName) {
+        setText(inputFirstName, firstName);
         return this;
     }
 
-    public CreateAccountPage setLastName(String LastName){
-        setText(inputLastName, LastName);
+    public CreateAccountPage setLastName(final String lastName) {
+        setText(inputLastName, lastName);
         return this;
     }
 
-    // в тесте должна быть проверка что email уже введен. Пока я просто перепишу
-    public CreateAccountPage setEmailAddress(String EmailAddress){
-        setText(inputEmailAddress,  EmailAddress);
+    public CreateAccountPage setEmailAddress(final String emailAddress) {
+        setText(inputEmailAddress, emailAddress);
         return this;
     }
 
-    public CreateAccountPage setPassword(String Password){
-        setText(inputPassword, Password);
+    public CreateAccountPage setPassword(final String password) {
+        setText(inputPassword, password);
         return this;
     }
 
     //желательно использовать рандомне значения в заданном диопазоне, пока даты захаркожены
-    public  CreateAccountPage selectBirthday(){
-        selectFromDropDownList(selectDays, "13");
+    public CreateAccountPage setBirthDate(final LocalDate date) {
+        selectBirthday(date.getDayOfMonth());
+        selectMonth(date.getMonth().getDisplayName()); // see javadocs to fill in missing args
+        selectYear(date.getYear());
         return this;
     }
 
-    public  CreateAccountPage selectMonth(){
-        selectFromDropDownList(selectMonths, "May");
+    public CreateAccountPage selectBirthday(final int day) {
+        selectFromDropDownList(selectDays, String.valueOf(day));
         return this;
     }
 
-    public  CreateAccountPage selectYear(){
-        selectFromDropDownList(selectYears, "1975");
+    public CreateAccountPage selectMonth(final String month) {
+        selectFromDropDownList(selectMonths, month);
+        return this;
+    }
+
+    public CreateAccountPage selectYear(final int year) {
+        selectFromDropDownList(selectYears, String.valueOf(year));
         return this;
     }
 
