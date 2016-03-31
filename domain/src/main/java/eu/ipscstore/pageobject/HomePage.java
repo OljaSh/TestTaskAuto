@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 public class HomePage extends BasePage {
 
     private By labelUserName = By.className("account");
-    private By buttonLogOut = By.className("logout");
+    public  By buttonLogOut = By.className("logout");
     private By buttonShopingCart = By.id("shopping_cart");
 
 
@@ -20,9 +20,10 @@ public class HomePage extends BasePage {
         return new LoginPage();
     }
 
-    public ShoppingCartPage clickShopingCart(){
+    //only new user gets address page after pressing on Cart menu
+    public YourAddressPage clickShopingCart(){
         click(buttonShopingCart);
-        return new ShoppingCartPage();
+        return new YourAddressPage();
     }
 
 

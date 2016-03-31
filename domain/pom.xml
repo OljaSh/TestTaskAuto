@@ -41,7 +41,7 @@
                     </properties>
                     <reportsDirectory>${project.basedir}/../reports</reportsDirectory>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/suites/test.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/suites/RegisterAndLogin.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

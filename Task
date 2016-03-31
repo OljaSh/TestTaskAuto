@@ -18,7 +18,6 @@ a. Reuse same random strings to put in “E-mail address” and “Password” f
 b. Login to user account.
 c. Navigation to your shopping cart.
 d. On the opened “Your Address” form fill the mandatory fields only.
-   - No fields for address
 e. Verify that you shopping cart is an empty.
 f. Logout.
 

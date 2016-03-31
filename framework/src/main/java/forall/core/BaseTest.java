@@ -4,14 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
 import static forall.utils.Browser.getBrowser;
-import static java.lang.ClassLoader.getSystemResource;
 
 /**
  * Created by oljashabanova on 18/03/16.
@@ -25,14 +22,14 @@ public class BaseTest {
     }
 
 
-    //пока для отладки запускаем только Firefox
+
     @BeforeClass
     public void setUp() {
         WebDriver driver;
 
         switch (getBrowser(System.getProperty("browser", "firefox"))) {
             case CHROME:
-                System.setProperty("webdriver.chrome.driver", "path"); // read path from resources
+                System.setProperty("webdriver.chrome.driver", "/Users/oljashabanova/_dev/_AutomationPractice/browser_driver/macchromedriver"); // read path from resources
                 driver = new ChromeDriver();
                 break;
             case FIREFOX:
