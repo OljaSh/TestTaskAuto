@@ -12,9 +12,6 @@ public class User {
 	private String lastName;
 
 	private LocalDate birthDate;
-	private String day;
-	private String month;
-	private String year;
 	private String title;
 
 	private String address;
@@ -25,16 +22,14 @@ public class User {
 	private String mobilePhone;
 	private String alias;
 
-	public User(final String password, final String firstName, final String lastName, final String day, final String month, final String year, final String title, final String address, final String postalCode,
+	public User(final String password, final String firstName, final String lastName, final int day,
+				final int month, final int year, final String title, final String address, final String postalCode,
 				final String city, final String country, final String mobilePhone, final String alias) {
 		this.email = RandomStringUtils.randomAlphabetic(8) + "@email.com";
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.day = day;
-		this.month = month;
-		this.year = year;
-		this.birthDate = birthDate;
+		this.birthDate = LocalDate.of(year, month, day);
 		this.title = title;
 
 		this.address = address;
@@ -71,12 +66,6 @@ public class User {
 	public String getTitle() {
 		return title;
 	}
-
-	public String getDay(){return  day;}
-
-	public String getMonth(){return  month;}
-
-	public String getYear(){return year;}
 
 	public String getFullName() {
 		return getFirstName() + " " + getLastName();

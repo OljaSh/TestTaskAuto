@@ -6,9 +6,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 import static forall.utils.Browser.getBrowser;
+import static forall.utils.WebDriverUtils.setChromeDriverPath;
+import static java.lang.ClassLoader.getSystemResource;
 
 /**
  * Created by oljashabanova on 18/03/16.
@@ -29,7 +33,7 @@ public class BaseTest {
 
         switch (getBrowser(System.getProperty("browser", "firefox"))) {
             case CHROME:
-                System.setProperty("webdriver.chrome.driver", "/Users/oljashabanova/_dev/_AutomationPractice/browser_driver/macchromedriver"); // read path from resources
+                setChromeDriverPath();
                 driver = new ChromeDriver();
                 break;
             case FIREFOX:
@@ -38,7 +42,8 @@ public class BaseTest {
                 break;
         }
 
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         WEB_DRIVER_CONTAINER.set(driver);
     }
 

@@ -28,7 +28,7 @@ public class RegisterNewUserTest extends BaseTest{
     @DataProvider(name = "testDP")
     public static Iterator<Object[]> dataProvider() {
         if (user == null) {
-            user = new User("123456", "fName", "sName", "10", "may", "1980", "Ms.", "Maiami", "Brazil", "1234", "Tuvalu", "55555", "ALIAS");
+            user = new User("123456", "fName", "sName", 10, 5, 1980, "Ms.", "Maiami", "Brazil", "1234", "Tuvalu", "55555", "ALIAS");
         }
 
         ArrayList<Object[]> output = new ArrayList<>();
@@ -39,7 +39,7 @@ public class RegisterNewUserTest extends BaseTest{
     }
 
     @Test(priority=1, dataProvider = "testDP")
-    public void RegisterMewUserTest(User user){
+    public void registerNewUserTest(User user){
         loadSiteUrl(URL.PROD)
                 .clickLoginButton()
                 .setEmailAddress(user.getEmail())
@@ -48,14 +48,10 @@ public class RegisterNewUserTest extends BaseTest{
                 .setFirstName (user.getFirstName())
                 .setLastName(user.getLastName())
                 .setPassword(user.getPassword())
-                //.selectDay(user.getDay())
-                //.selectMonth(user.getMonth())
-                //.selectYear(user.getYear())
+                .setBirthDate(user.getBirthDate())
                 .setSignUpNewsletter()
                 .setIAgree()
                 .clickRegisterButton();
-
-
 
         Assert.assertEquals($(HomePage.class).getUserName(), $(HomePage.class).getUserName());
         // Assert.assertEquals($(HomePage.class).buttonLogOut, $(HomePage.class).getUserName());
@@ -65,7 +61,7 @@ public class RegisterNewUserTest extends BaseTest{
     }
 
     @Test(priority=2, dataProvider = "testDP")
-    public void Login(User user) {
+    public void loginWithCreatedUser(User user) {
         loadSiteUrl(URL.PROD)
                 .clickLoginButton()
                 .setRegisteredEmailAddress(user.getEmail())

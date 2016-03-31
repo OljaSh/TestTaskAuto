@@ -3,6 +3,8 @@ package eu.ipscstore.pageobject;
 import forall.core.BasePage;
 import org.openqa.selenium.By;
 
+import java.time.LocalDate;
+
 
 public class CreateAccountPage extends BasePage {
 
@@ -47,25 +49,25 @@ public class CreateAccountPage extends BasePage {
         return this;
     }
 
-    /*public CreateAccountPage setBirthDate(final LocalDate date) {
-        selectBirthday(date.getDayOfMonth());
-        selectMonth(date.getMonth().getDisplayName()); // see javadocs to fill in missing args
+    public CreateAccountPage setBirthDate(final LocalDate date) {
+        selectDay(date.getDayOfMonth());
+        selectMonth(date.getMonth().getValue());
         selectYear(date.getYear());
         return this;
-    }*/
+    }
 
-    public CreateAccountPage selectDay(final String day) {
-        selectFromDropDownList(selectDays, String.valueOf(day));
+    public CreateAccountPage selectDay(final int day) {
+        selectValueFromDropDownList(selectDays, String.valueOf(day));
         return this;
     }
 
-    public CreateAccountPage selectMonth(final String month) {
-        selectFromDropDownList(selectMonths, month);
+    public CreateAccountPage selectMonth(final int month) {
+        selectValueFromDropDownList(selectMonths, String.valueOf(month));
         return this;
     }
 
-    public CreateAccountPage selectYear(final String year) {
-        selectFromDropDownList(selectYears, String.valueOf(year));
+    public CreateAccountPage selectYear(final int year) {
+        selectValueFromDropDownList(selectYears, String.valueOf(year));
         return this;
     }
 
