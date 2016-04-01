@@ -4,13 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 import static forall.utils.Browser.getBrowser;
+import static forall.utils.WebDriverUtils.setChromeDriverPath;
 import static java.lang.ClassLoader.getSystemResource;
 
 /**
@@ -25,14 +26,14 @@ public class BaseTest {
     }
 
 
-    //пока для отладки запускаем только Firefox
+
     @BeforeClass
     public void setUp() {
         WebDriver driver;
 
         switch (getBrowser(System.getProperty("browser", "firefox"))) {
             case CHROME:
-                System.setProperty("webdriver.chrome.driver", "path"); // read path from resources
+                setChromeDriverPath();
                 driver = new ChromeDriver();
                 break;
             case FIREFOX:
@@ -41,7 +42,8 @@ public class BaseTest {
                 break;
         }
 
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         WEB_DRIVER_CONTAINER.set(driver);
     }
 

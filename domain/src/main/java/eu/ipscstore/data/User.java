@@ -10,16 +10,37 @@ public class User {
 	private String password;
 	private String firstName;
 	private String lastName;
+
 	private LocalDate birthDate;
 	private String title;
 
-	public User(final String password, final String firstName, final String lastName, final LocalDate birthDate, final String title) {
+	private String address;
+	private String postalCode;
+	private String city;
+	private String country;
+	//private String state;
+	private String mobilePhone;
+	private String alias;
+
+	public User(final String password, final String firstName, final String lastName, final int day,
+				final int month, final int year, final String title, final String address, final String postalCode,
+				final String city, final String country, final String mobilePhone, final String alias) {
 		this.email = RandomStringUtils.randomAlphabetic(8) + "@email.com";
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.birthDate = birthDate;
+		this.birthDate = LocalDate.of(year, month, day);
 		this.title = title;
+
+		this.address = address;
+		this.postalCode = postalCode;
+		this.city = city;
+		this.country = country;
+		//this.state = state;
+		this.mobilePhone = mobilePhone;
+		this.alias = alias;
+
+
 	}
 
 	public String getEmail() {
@@ -49,4 +70,30 @@ public class User {
 	public String getFullName() {
 		return getFirstName() + " " + getLastName();
 	}
+
+	public String getAddress() {return address;}
+
+	public String getPostalCode() {
+		return postalCode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public String getCountry(){
+		return country;
+	}
+
+	//public String getState(){return state;}
+
+	public String getMobilePhone(){
+		return mobilePhone;
+	}
+
+	public String getAlias(){
+		return alias;
+	}
+
+
 }

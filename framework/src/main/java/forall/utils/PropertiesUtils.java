@@ -15,15 +15,10 @@ public class PropertiesUtils {
 
     public static final class Constants{
         public static final String PROD_URL = "prod.url.arg";
-        public static final String CHROME_BROWSER = "webdriver.chrome.driver";
-
 
         private Constants(){
-
         }
     }
-
-
 
     static {
         try{

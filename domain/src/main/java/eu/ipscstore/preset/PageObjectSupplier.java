@@ -1,8 +1,7 @@
 package eu.ipscstore.preset;
 
 import com.esotericsoftware.reflectasm.ConstructorAccess;
-import com.gargoylesoftware.htmlunit.javascript.host.URL;
-import eu.ipscstore.pageobject.LoginPage;
+import eu.ipscstore.pageobject.SiteHomePage;
 
 import static forall.core.BaseTest.getDriver;
 
@@ -15,9 +14,9 @@ public class PageObjectSupplier {
         return ConstructorAccess.get(pageObject).newInstance();
     }
 
-    public static LoginPage loadSiteUrl(final URL url) {
+    public static SiteHomePage loadSiteUrl(final URL url) {
         getDriver().get(url.toString());
-        return $(LoginPage.class);
+        return $(SiteHomePage.class);
     }
 
 
