@@ -16,9 +16,7 @@ import static eu.ipscstore.preset.PageObjectSupplier.$;
 import static eu.ipscstore.preset.PageObjectSupplier.loadSiteUrl;
 
 
-/**
- * Created by oljashabanova on 21/03/16.
- */
+
 public class RegisterNewUserTest extends BaseTest{
 
 

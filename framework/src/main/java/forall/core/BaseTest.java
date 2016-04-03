@@ -6,17 +6,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import java.net.URISyntaxException;
-import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 import static forall.utils.Browser.getBrowser;
 import static forall.utils.WebDriverUtils.setChromeDriverPath;
-import static java.lang.ClassLoader.getSystemResource;
 
-/**
- * Created by oljashabanova on 18/03/16.
- */
+
 public class BaseTest {
 
     private static final ThreadLocal<WebDriver> WEB_DRIVER_CONTAINER = new  ThreadLocal<WebDriver>();
@@ -33,6 +28,7 @@ public class BaseTest {
 
         switch (getBrowser(System.getProperty("browser", "firefox"))) {
             case CHROME:
+                //System.setProperty("webdriver.chrome.driver", "/Users/oljashabanova/_dev/_AutomationPractice/TestTaskAuto/framework/src/main/resources/drivers/chromedriver_mac32");
                 setChromeDriverPath();
                 driver = new ChromeDriver();
                 break;
@@ -46,6 +42,8 @@ public class BaseTest {
         driver.manage().window().maximize();
         WEB_DRIVER_CONTAINER.set(driver);
     }
+
+
 
     @AfterClass
     public void tearDown(){

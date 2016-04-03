@@ -5,9 +5,7 @@ import java.util.Optional;
 
 import static java.lang.ClassLoader.getSystemResource;
 
-/**
- * Created by Sergey Korol
- */
+
 public final class WebDriverUtils {
 
 	public static void setChromeDriverPath() {
