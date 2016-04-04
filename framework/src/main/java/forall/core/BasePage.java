@@ -3,14 +3,11 @@ package forall.core;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-/**
- * Created by oljashabanova on 18/03/16.
- */
+
 public class BasePage {
 
     private WebDriver driver;
@@ -33,12 +30,10 @@ public class BasePage {
 
     public void click(By element){
         findElement(element).click();
-        //new Actions(driver).doubleClick(findElement(element));
     }
 
     public void clickAndWait(By element){
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-        //new Actions(driver).doubleClick(findElement(element));
     }
 
     public String getText(By element){

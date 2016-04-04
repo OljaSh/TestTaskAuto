@@ -6,9 +6,7 @@ import java.util.Optional;
 
 import static forall.utils.PropertiesUtils.getStringValue;
 
-/**
- * Created by oljashabanova on 21/03/16.
- */
+
 public enum URL {
 
     PROD(getStringValue(PropertiesUtils.Constants.PROD_URL));

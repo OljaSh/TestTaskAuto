@@ -5,9 +5,7 @@ import eu.ipscstore.pageobject.SiteHomePage;
 
 import static forall.core.BaseTest.getDriver;
 
-/**
- * Created by oljashabanova on 21/03/16.
- */
+
 public class PageObjectSupplier {
 
     public static <T> T $(Class<T> pageObject) {

@@ -18,7 +18,6 @@ public class User {
 	private String postalCode;
 	private String city;
 	private String country;
-	//private String state;
 	private String mobilePhone;
 	private String alias;
 
@@ -36,7 +35,6 @@ public class User {
 		this.postalCode = postalCode;
 		this.city = city;
 		this.country = country;
-		//this.state = state;
 		this.mobilePhone = mobilePhone;
 		this.alias = alias;
 

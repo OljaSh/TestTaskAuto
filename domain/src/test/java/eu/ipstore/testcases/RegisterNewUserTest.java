@@ -52,7 +52,6 @@ public class RegisterNewUserTest extends BaseTest{
                 .clickRegisterButton();
 
         Assert.assertEquals($(HomePage.class).getUserName(), $(HomePage.class).getUserName());
-        // Assert.assertEquals($(HomePage.class).buttonLogOut, $(HomePage.class).getUserName());
         //Assert.assertEquals(true, $(HomePage.class).buttonLogOut );
 
         $(HomePage.class).clickLogOutButton();

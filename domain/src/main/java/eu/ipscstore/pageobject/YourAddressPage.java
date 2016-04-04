@@ -3,9 +3,6 @@ package eu.ipscstore.pageobject;
 import forall.core.BasePage;
 import org.openqa.selenium.By;
 
-/**
- * Created by oljashabanova on 29/03/16.
- */
 public class YourAddressPage extends BasePage{
 
     private By inputFirstName = By.id("firstname");

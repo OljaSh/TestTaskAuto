@@ -6,9 +6,6 @@ import org.apache.commons.configuration.SystemConfiguration;
 
 import java.util.Arrays;
 
-/**
- * Created by oljashabanova on 21/03/16.
- */
 public class PropertiesUtils {
 
     private static final CompositeConfiguration MIXED_CONFIG;

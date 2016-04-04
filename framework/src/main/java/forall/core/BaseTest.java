@@ -28,7 +28,6 @@ public class BaseTest {
 
         switch (getBrowser(System.getProperty("browser", "firefox"))) {
             case CHROME:
-                //System.setProperty("webdriver.chrome.driver", "/Users/oljashabanova/_dev/_AutomationPractice/TestTaskAuto/framework/src/main/resources/drivers/chromedriver_mac32");
                 setChromeDriverPath();
                 driver = new ChromeDriver();
                 break;
