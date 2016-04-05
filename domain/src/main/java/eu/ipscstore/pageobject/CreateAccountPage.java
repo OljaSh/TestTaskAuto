@@ -22,8 +22,6 @@ public class CreateAccountPage extends BasePage {
     private By buttonRegister = By.id("submitAccount");
 
 
-
-
     public  CreateAccountPage setTitle() {
         click(radioButtonUnknown);
         return this;

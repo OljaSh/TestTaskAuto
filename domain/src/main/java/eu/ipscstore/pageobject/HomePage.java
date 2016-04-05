@@ -20,11 +20,9 @@ public class HomePage extends BasePage {
         return new LoginPage();
     }
 
-    //only new user gets address page after pressing on Cart menu
     public YourAddressPage clickShopingCart(){
         click(buttonShopingCart);
         return new YourAddressPage();
     }
-
 
 }

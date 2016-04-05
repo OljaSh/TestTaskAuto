@@ -16,8 +16,6 @@ public class YourAddressPage extends BasePage{
     private By inputMobilePhone = By.id("phone_mobile");
     private By buttonSave = By.id("submitAddress");
 
-
-
     public YourAddressPage setFirstName(String firstName){
         setText(inputFirstName, firstName);
         return this;

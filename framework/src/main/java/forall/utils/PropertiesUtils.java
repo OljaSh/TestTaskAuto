@@ -31,6 +31,16 @@ public class PropertiesUtils {
         return MIXED_CONFIG.getString(key);
     }
 
+
+    public static long getWaitTime(){
+        return Long.parseLong(getStringValue("wait.time.sec"));
+    }
+
+    public static long getDefaultTimeOut(){
+        return Long.parseLong(getStringValue("default.timeout"));
+    }
+
+
     private PropertiesUtils(){
 
     }

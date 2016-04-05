@@ -1,5 +1,6 @@
 package forall.core;
 
+import forall.utils.PropertiesUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -37,7 +38,7 @@ public class BaseTest {
                 break;
         }
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait((PropertiesUtils.getWaitTime()), TimeUnit.SECONDS);
         driver.manage().window().maximize();
         WEB_DRIVER_CONTAINER.set(driver);
     }

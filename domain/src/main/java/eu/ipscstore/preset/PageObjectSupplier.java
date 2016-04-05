@@ -18,7 +18,6 @@ public class PageObjectSupplier {
     }
 
 
-
     private PageObjectSupplier(){
 
     }

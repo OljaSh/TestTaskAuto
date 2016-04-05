@@ -21,3 +21,4 @@ public enum URL {
         return Optional.ofNullable(System.getenv("URL")).orElse(address);
     }
 }
+

@@ -40,4 +40,5 @@ public class LoginPage extends BasePage {
         click(buttonLogin);
         return $(HomePage.class);
     }
+
 }

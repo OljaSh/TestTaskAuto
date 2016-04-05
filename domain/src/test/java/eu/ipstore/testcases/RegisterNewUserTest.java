@@ -16,9 +16,7 @@ import static eu.ipscstore.preset.PageObjectSupplier.$;
 import static eu.ipscstore.preset.PageObjectSupplier.loadSiteUrl;
 
 
-
 public class RegisterNewUserTest extends BaseTest{
-
 
 
     private static User user;
@@ -32,8 +30,6 @@ public class RegisterNewUserTest extends BaseTest{
         ArrayList<Object[]> output = new ArrayList<>();
         output.add(new Object[]{user});
         return output.iterator();
-
-
     }
 
     @Test(priority=1, dataProvider = "testDP")

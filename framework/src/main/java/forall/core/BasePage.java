@@ -1,5 +1,6 @@
 package forall.core;
 
+import forall.utils.PropertiesUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,11 +14,11 @@ public class BasePage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private static final long DEFAULT_TIMEOUT = 30; // move to props
+    //private static final long DEFAULT_TIMEOUT = 30; // move to props
 
     public BasePage (){
         driver = BaseTest.getDriver();
-        wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
+        wait = new WebDriverWait(driver, PropertiesUtils.getDefaultTimeOut());
     }
 
     public WebElement findElement(By element){

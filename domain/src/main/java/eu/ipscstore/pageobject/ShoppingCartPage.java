@@ -11,6 +11,4 @@ public class ShoppingCartPage extends BasePage {
     public String  getWarningMessage(){
         return getText(textWarning);
     }
-
-
 }

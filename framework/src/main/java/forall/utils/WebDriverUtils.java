@@ -22,4 +22,5 @@ public final class WebDriverUtils {
 
 	private WebDriverUtils() {
 	}
+
 }
