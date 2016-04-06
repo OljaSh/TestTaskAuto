@@ -1,16 +1,15 @@
-package forall.core;
+package ue.ipscstore.core;
 
-import forall.utils.PropertiesUtils;
+import ue.ipscstore.utils.PropertiesUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import ue.ipscstore.utils.Browser;
+import ue.ipscstore.utils.WebDriverUtils;
 
 import java.util.concurrent.TimeUnit;
-
-import static forall.utils.Browser.getBrowser;
-import static forall.utils.WebDriverUtils.setChromeDriverPath;
 
 
 public class BaseTest {
@@ -27,9 +26,9 @@ public class BaseTest {
     public void setUp() {
         WebDriver driver;
 
-        switch (getBrowser(System.getProperty("browser", "firefox"))) {
+        switch (Browser.getBrowser(System.getProperty("browser", "firefox"))) {
             case CHROME:
-                setChromeDriverPath();
+                WebDriverUtils.setChromeDriverPath();
                 driver = new ChromeDriver();
                 break;
             case FIREFOX:

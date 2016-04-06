@@ -1,6 +1,6 @@
 package eu.ipscstore.pageobject;
 
-import forall.core.BasePage;
+import ue.ipscstore.core.BasePage;
 import org.openqa.selenium.By;
 
 

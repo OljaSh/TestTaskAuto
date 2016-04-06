@@ -1,4 +1,4 @@
-package forall.utils;
+package ue.ipscstore.utils;
 
 import org.apache.commons.lang3.SystemUtils;
 import java.util.Optional;

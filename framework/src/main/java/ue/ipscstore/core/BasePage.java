@@ -1,6 +1,6 @@
-package forall.core;
+package ue.ipscstore.core;
 
-import forall.utils.PropertiesUtils;
+import ue.ipscstore.utils.PropertiesUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

@@ -1,10 +1,10 @@
 package eu.ipscstore.preset;
 
-import forall.utils.PropertiesUtils;
+import ue.ipscstore.utils.PropertiesUtils;
 
 import java.util.Optional;
 
-import static forall.utils.PropertiesUtils.getStringValue;
+import static ue.ipscstore.utils.PropertiesUtils.getStringValue;
 
 
 public enum URL {

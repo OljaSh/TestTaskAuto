@@ -1,4 +1,4 @@
-package forall.utils;
+package ue.ipscstore.utils;
 
 import java.util.stream.Stream;
 

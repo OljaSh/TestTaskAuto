@@ -1,4 +1,4 @@
-package forall.utils;
+package ue.ipscstore.utils;
 
 import org.apache.commons.configuration.CompositeConfiguration;
 import org.apache.commons.configuration.PropertiesConfiguration;

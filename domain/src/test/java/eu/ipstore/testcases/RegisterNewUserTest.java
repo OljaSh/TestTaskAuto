@@ -4,7 +4,7 @@ import eu.ipscstore.data.User;
 import eu.ipscstore.pageobject.HomePage;
 import eu.ipscstore.pageobject.ShoppingCartPage;
 import eu.ipscstore.preset.URL;
-import forall.core.BaseTest;
+import ue.ipscstore.core.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

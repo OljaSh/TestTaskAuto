@@ -3,7 +3,7 @@ package eu.ipscstore.preset;
 import com.esotericsoftware.reflectasm.ConstructorAccess;
 import eu.ipscstore.pageobject.SiteHomePage;
 
-import static forall.core.BaseTest.getDriver;
+import static ue.ipscstore.core.BaseTest.getDriver;
 
 
 public class PageObjectSupplier {
