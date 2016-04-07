@@ -12,6 +12,8 @@ public class PropertiesUtils {
 
     public static final class Constants{
         public static final String PROD_URL = "prod.url.arg";
+        public static final String WAIT_TIME_SEC = ("wait.time.sec");
+        public static final String DEFAULT_TIMEOUT = ("default.timeout");
 
         private Constants(){
         }
@@ -31,15 +33,9 @@ public class PropertiesUtils {
         return MIXED_CONFIG.getString(key);
     }
 
-
-    public static long getWaitTime(){
-        return Long.parseLong(getStringValue("wait.time.sec"));
+    public static long getLongValue(final String key) {
+        return MIXED_CONFIG.getLong(key);
     }
-
-    public static long getDefaultTimeOut(){
-        return Long.parseLong(getStringValue("default.timeout"));
-    }
-
 
     private PropertiesUtils(){
 

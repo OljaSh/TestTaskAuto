@@ -11,6 +11,8 @@ import ue.ipscstore.utils.WebDriverUtils;
 
 import java.util.concurrent.TimeUnit;
 
+import static ue.ipscstore.utils.PropertiesUtils.getLongValue;
+
 
 public class BaseTest {
 
@@ -37,7 +39,7 @@ public class BaseTest {
                 break;
         }
 
-        driver.manage().timeouts().implicitlyWait((PropertiesUtils.getWaitTime()), TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(getLongValue(PropertiesUtils.Constants.WAIT_TIME_SEC), TimeUnit.SECONDS);
         driver.manage().window().maximize();
         WEB_DRIVER_CONTAINER.set(driver);
     }

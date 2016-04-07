@@ -10,7 +10,6 @@ public class HomePage extends BasePage {
     public  By buttonLogOut = By.className("logout");
     private By buttonShopingCart = By.id("shopping_cart");
 
-
     public String getUserName(){
         return getText(labelUserName);
     }

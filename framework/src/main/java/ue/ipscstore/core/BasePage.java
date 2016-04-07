@@ -1,12 +1,14 @@
 package ue.ipscstore.core;
 
-import ue.ipscstore.utils.PropertiesUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ue.ipscstore.utils.PropertiesUtils;
+
+import static ue.ipscstore.utils.PropertiesUtils.getLongValue;
 
 
 public class BasePage {
@@ -18,7 +20,8 @@ public class BasePage {
 
     public BasePage (){
         driver = BaseTest.getDriver();
-        wait = new WebDriverWait(driver, PropertiesUtils.getDefaultTimeOut());
+        wait = new WebDriverWait(driver, getLongValue(PropertiesUtils.Constants.DEFAULT_TIMEOUT));
+        //wait = new WebDriverWait(driver, PropertiesUtils.getDefaultTimeOut());
     }
 
     public WebElement findElement(By element){
