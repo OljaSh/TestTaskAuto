@@ -9,6 +9,9 @@ import static java.lang.ClassLoader.getSystemResource;
 public final class WebDriverUtils {
 
 	public static void setChromeDriverPath() {
+		//String s = "abc";
+		//String result = !s.isEmpty() ? "full" : "empty";
+
 		final String driverName = "chromedriver_" +
 				(SystemUtils.IS_OS_WINDOWS ? "win32.exe" :
 						SystemUtils.IS_OS_MAC || SystemUtils.IS_OS_MAC_OSX ? "mac32" :

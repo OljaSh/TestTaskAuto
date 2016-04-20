@@ -3,7 +3,11 @@
 <suite name="RegisterAndLogin">
     <test name="RegisterAndLoginTest">
         <classes>
-            <class name="eu.ipstore.testcases.RegisterNewUserTest" />
+            <class name="eu.ipstore.testcases.RegisterNewUserTest">
+                <methods>
+                    <include name="registerNewUserTest"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
