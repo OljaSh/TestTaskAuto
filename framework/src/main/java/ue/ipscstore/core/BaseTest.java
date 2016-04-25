@@ -1,5 +1,10 @@
 package ue.ipscstore.core;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.remote.Augmenter;
+import org.testng.annotations.AfterMethod;
+import ru.yandex.qatools.allure.annotations.Attachment;
 import ue.ipscstore.utils.PropertiesUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,7 +14,9 @@ import org.testng.annotations.BeforeClass;
 import ue.ipscstore.utils.Browser;
 import ue.ipscstore.utils.WebDriverUtils;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 import static ue.ipscstore.utils.PropertiesUtils.getLongValue;
 
@@ -22,7 +29,7 @@ public class BaseTest {
         return WEB_DRIVER_CONTAINER.get();
     }
 
-
+    private static final Logger LOGGER = Logger.getLogger(BaseTest.class.getName());
 
     @BeforeClass
     public void setUp() {
@@ -44,7 +51,16 @@ public class BaseTest {
         WEB_DRIVER_CONTAINER.set(driver);
     }
 
-
+    @AfterMethod(alwaysRun = true)
+    public void takeScreenshot() {
+        LOGGER.info("Taking screenshot");
+        try {
+            WebDriver augmentedDriver = new Augmenter().augment(getDriver());
+            saveScreenshot("Screenshot", ((TakesScreenshot) augmentedDriver).getScreenshotAs(OutputType.BYTES));
+        } catch (Exception ex) {
+            LOGGER.severe("Unable to take screenshot: " + ex);
+        }
+    }
 
     @AfterClass
     public void tearDown(){
@@ -52,6 +68,11 @@ public class BaseTest {
             getDriver().quit();
             WEB_DRIVER_CONTAINER.remove();
         }
+    }
+
+    @Attachment(value = "{0}", type = "image/png")
+    public byte[] saveScreenshot(String name, byte[] screenShot) {
+        return screenShot;
     }
 
 }

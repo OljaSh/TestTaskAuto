@@ -17,8 +17,6 @@ public class PageObjectSupplier {
         return $(SiteHomePage.class);
     }
 
-
     private PageObjectSupplier(){
-
     }
 }

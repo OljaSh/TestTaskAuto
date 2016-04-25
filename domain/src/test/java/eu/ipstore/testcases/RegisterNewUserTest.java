@@ -4,6 +4,8 @@ import eu.ipscstore.data.User;
 import eu.ipscstore.pageobject.HomePage;
 import eu.ipscstore.pageobject.ShoppingCartPage;
 import eu.ipscstore.preset.URL;
+import org.openqa.selenium.support.PageFactory;
+import ru.yandex.qatools.allure.annotations.*;
 import ue.ipscstore.core.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -32,6 +34,10 @@ public class RegisterNewUserTest extends BaseTest{
         return output.iterator();
     }
 
+    @Features({"CIR-876"})
+    @Stories({"CIR-098"})
+    @TestCaseId("CIR-456")
+    @Issues({@Issue("CIR-123"), @Issue("CIR-124")})
     @Test(priority=1, dataProvider = "testDP")
     public void registerNewUserTest(User user){
         loadSiteUrl(URL.PROD)
@@ -46,6 +52,9 @@ public class RegisterNewUserTest extends BaseTest{
                 .setSignUpNewsletter()
                 .setIAgree()
                 .clickRegisterButton();
+
+        //PageFactory.initElements(getDriver(), HomePage.class);
+        //$(HomePage.class);
 
         Assert.assertEquals($(HomePage.class).getUserName(), $(HomePage.class).getUserName());
         //Assert.assertEquals(true, $(HomePage.class).buttonLogOut );
