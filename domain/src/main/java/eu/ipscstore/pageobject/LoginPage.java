@@ -1,10 +1,8 @@
 package eu.ipscstore.pageobject;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Step;
 import ue.ipscstore.core.BasePage;
-import org.openqa.selenium.By;
 
 import static eu.ipscstore.preset.PageObjectSupplier.$;
 
@@ -33,17 +31,19 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    //Already registered? section
+    @Step("Login with email = {0}")//Already registered? section
     public LoginPage setRegisteredEmailAddress(String emailAddress){
         setText(inputEmailAddressRegistered, emailAddress);
         return this;
     }
 
+    @Step("Enter password")
     public LoginPage setRegisteredPassword(String password){
         setText(inputPassword, password);
         return this;
     }
 
+    @Step("Clict on Login button")
     public HomePage clickButtonLogin(){
         click(buttonLogin);
         return $(HomePage.class);

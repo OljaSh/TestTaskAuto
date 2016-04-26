@@ -16,12 +16,10 @@ public class BasePage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    //private static final long DEFAULT_TIMEOUT = 30; // move to props
 
     public BasePage (){
         driver = BaseTest.getDriver();
         wait = new WebDriverWait(driver, getLongValue(PropertiesUtils.Constants.DEFAULT_TIMEOUT));
-        //wait = new WebDriverWait(driver, PropertiesUtils.getDefaultTimeOut());
     }
 
     public WebElement findElement(By element){
