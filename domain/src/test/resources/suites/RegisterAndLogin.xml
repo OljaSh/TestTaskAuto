@@ -2,6 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="RegisterAndLogin">
     <test name="RegisterAndLoginTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="eu.ipstore.testcases.RegisterNewUserTest">
+                <methods>
+                    <include name="registerNewUserTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="RegisterAndLoginTest">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="eu.ipstore.testcases.LoginWithCreatedUserTest">
                 <methods>

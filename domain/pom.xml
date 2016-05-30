@@ -25,6 +25,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19</version>
                 <configuration>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>ue.ipscstore.core.BaseListener</value>
+                        </property>
+                    </properties>
                     <reportsDirectory>${project.basedir}/../reports</reportsDirectory>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/suites/RegisterAndLogin.xml</suiteXmlFile>
@@ -82,7 +88,7 @@
             <plugin>
                 <groupId>ru.yandex.qatools.allure</groupId>
                 <artifactId>allure-maven-plugin</artifactId>
-                <version>2.2</version>
+                <version>2.5</version>
             </plugin>
         </plugins>
     </reporting>
