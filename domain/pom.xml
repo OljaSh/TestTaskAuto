@@ -30,6 +30,10 @@
                             <name>listener</name>
                             <value>ue.ipscstore.core.BaseListener</value>
                         </property>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
                     </properties>
                     <reportsDirectory>${project.basedir}/../reports</reportsDirectory>
                     <suiteXmlFiles>
@@ -89,6 +93,13 @@
                 <groupId>ru.yandex.qatools.allure</groupId>
                 <artifactId>allure-maven-plugin</artifactId>
                 <version>2.5</version>
+                <configuration>
+                    <reportDirectory>${project.basedir}/../reports</reportDirectory>
+                    <properties>
+                        <allure.issues.tracker.pattern>https://url/browse/%s</allure.issues.tracker.pattern>
+                        <allure.tests.management.pattern>https://url/browse/%s</allure.tests.management.pattern>
+                    </properties>
+                </configuration>
             </plugin>
         </plugins>
     </reporting>
