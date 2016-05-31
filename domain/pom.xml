@@ -18,6 +18,24 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <suites>${env.SUITES}</suites>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>if-suite-doesnt-exist</id>
+            <activation>
+                <property>
+                    <name>!env.SUITES</name>
+                </property>
+            </activation>
+            <properties>
+                <suites>firefox-suite</suites>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
@@ -37,7 +55,7 @@
                     </properties>
                     <reportsDirectory>${project.basedir}/../reports</reportsDirectory>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/suites/RegisterAndLogin.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/suites/${suites}.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
