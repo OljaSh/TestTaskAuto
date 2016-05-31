@@ -33,12 +33,12 @@ public class LoginWithCreatedUserTest extends BaseTest {
 
     @Test(dataProvider = "testDP")
     public void loginWithUser(User2 user2){
-        /*loadSiteUrl(URL.PROD)
+        loadSiteUrl(URL.PROD)
                 .clickLoginButton()
                 .setRegisteredEmailAddress(user2.getEmail())
                 .setRegisteredPassword(user2.getPassword())
                 .clickButtonLogin();
-        Assert.assertEquals($(HomePage.class).getUserName(), $(HomePage.class).getUserName());*/
+        Assert.assertEquals($(HomePage.class).getUserName(), $(HomePage.class).getUserName());
        // $(HomePage.class).clickLogOutButton();
     }
 
