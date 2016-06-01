@@ -18,6 +18,24 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <suites>${env.SUITES}</suites>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>if-suite-doesnt-exist</id>
+            <activation>
+                <property>
+                    <name>!env.SUITES</name>
+                </property>
+            </activation>
+            <properties>
+                <suites>firefox-suite</suites>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
@@ -30,10 +48,14 @@
                             <name>listener</name>
                             <value>ue.ipscstore.core.BaseListener</value>
                         </property>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
                     </properties>
                     <reportsDirectory>${project.basedir}/../reports</reportsDirectory>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/suites/RegisterAndLogin.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/suites/${suites}.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
@@ -89,6 +111,13 @@
                 <groupId>ru.yandex.qatools.allure</groupId>
                 <artifactId>allure-maven-plugin</artifactId>
                 <version>2.5</version>
+                <configuration>
+                    <reportDirectory>${project.basedir}/../reports</reportDirectory>
+                    <properties>
+                        <allure.issues.tracker.pattern>https://url/browse/%s</allure.issues.tracker.pattern>
+                        <allure.tests.management.pattern>https://url/browse/%s</allure.tests.management.pattern>
+                    </properties>
+                </configuration>
             </plugin>
         </plugins>
     </reporting>
